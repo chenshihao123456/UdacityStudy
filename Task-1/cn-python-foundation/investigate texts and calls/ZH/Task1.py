@@ -16,7 +16,6 @@ with open('calls.csv', 'r') as f:
 def add_telephone_number(phone_list, dic_number):
 	for lineInfor in phone_list:
 		dic_number.add(lineInfor[0])
-		dic_number.add(lineInfor[0])
 	
 	
 """

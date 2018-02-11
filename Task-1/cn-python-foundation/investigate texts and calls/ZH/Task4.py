@@ -27,27 +27,10 @@ with open('calls.csv', 'r') as f:
 """
 
 
-list_promoter=set()
-normal_personal=set()
-for lineInfor in texts:
-	normal_personal.add(lineInfor[0])
-	normal_personal.add(lineInfor[1])	
-for lineInfor in calls:
-	normal_personal.add(lineInfor[1])
-
-for lineInfor in calls:
-	phoneNamber = lineInfor[0]
-	if phoneNamber in  normal_personal:
-		continue
-	else:
-		list_promoter.add(phoneNamber)
-		
+possible_phone_number = [x[0] for x in calls]
+impossible_phone_number = [x[1] for x in calls] + sum([[x[0], x[1]] for x in texts] ,[])
+list_promoter = sorted(set(possible_phone_number) - set(impossible_phone_number))
 print("These numbers could be telemarketers: ")
-new_list_promoter = list(list_promoter)
-new_list_promoter.sort()
-for _ in new_list_promoter:
-	print(_)
-		
-
-
+for promoter in list_promoter:
+	print(promoter)
 

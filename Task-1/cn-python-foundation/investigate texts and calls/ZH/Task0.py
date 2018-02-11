@@ -19,14 +19,15 @@ with open('calls.csv', 'r') as f:
 "First record of texts, <incoming number> texts <answering number> at time <time>"
 "Last record of calls, <incoming number> calls <answering number> at time <time>, lasting <during> seconds"
 """
-incomineNumber = texts[0][0]
-answeringNumber = texts[0][1]
+incomine_number = texts[0][0]
+answering_number = texts[0][1]
 time = texts[0][2]
-firstMessage = "First record of texts, <{}> texts <{}> at time <{}>".format(incomineNumber, answeringNumber, time)
-print(firstMessage)
+first_message = "First record of texts, <{}> texts <{}> at time <{}>".format(incomine_number, answering_number, time)
+print(first_message)
 
-incomineNumber = calls[-1][0]
-answeringNumber = calls[-1][1]
+incomine_number = calls[-1][0]
+answering_number = calls[-1][1]
 time = calls[-1][2]
-LastMessage = "First record of texts, <{}> texts <{}> at time <{}>".format(incomineNumber, answeringNumber, time)
-print(LastMessage)
+during = calls[-1][3]
+last_message = "Last record of calls, <{}> calls <{}> at time <{}>, lasting <{}> seconds".format(incomine_number, answering_number, time, during)
+print(last_message)

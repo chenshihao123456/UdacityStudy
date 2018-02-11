@@ -39,35 +39,35 @@ with open('calls.csv', 'r') as f:
 to other fixed lines in Bangalore."
 注意：百分比应包含2位小数。
 """
-AreaCodes = set()
-for elemInfor in calls:
-	sendPhoneNumber = elemInfor[0]
-	receivePhoneNumber = elemInfor[1]
-	if '(080)' in sendPhoneNumber:
-		if '(' in receivePhoneNumber :
-			index_end = receivePhoneNumber.find(')')
-			tmpAreaCode= receivePhoneNumber[1:index_end]
-			AreaCodes.add(tmpAreaCode)		
-		if ' ' in receivePhoneNumber:
-			tmpAreaCode= receivePhoneNumber[0:4]
-			AreaCodes.add(tmpAreaCode)	
-sortAreaCodes = list(AreaCodes)
-sortAreaCodes.sort()			
+area_codes = set()
+for elem_infor in calls:
+	send_phone_number = elem_infor[0]
+	receive_phone_number = elem_infor[1]
+	if '(080)' in send_phone_number:
+		if '(' in receive_phone_number :
+			index_end = receive_phone_number.find(')')
+			tmp_area_code= receive_phone_number[1:index_end]
+			area_codes.add(tmp_area_code)		
+		if ' ' in receive_phone_number:
+			tmp_area_code= receive_phone_number[0:4]
+			area_codes.add(tmp_area_code)	
+sortarea_codes = list(area_codes)
+sortarea_codes.sort()			
 print("The numbers called by people in Bangalore have codes:")
-for _ in sortAreaCodes:
-	print(_)
+for elem_area_code in sortarea_codes:
+	print(elem_area_code)
 
 
-sumDialOut = 0
-sumDialIn = 0
-for elemInfor in calls:
-	sendPhoneNumber = elemInfor[0]
-	receivePhoneNumber = elemInfor[1]
-	if '080' in sendPhoneNumber:
-		sumDialOut += 1
-		if '080' in receivePhoneNumber:
-			sumDialIn += 1
+sum_dial_out = 0
+sum_dial_in = 0
+for elem_infor in calls:
+	send_phone_number = elem_infor[0]
+	receive_phone_number = elem_infor[1]
+	if '080' in send_phone_number:
+		sum_dial_out += 1
+		if '080' in receive_phone_number:
+			sum_dial_in += 1
 	
-print("<{:.2f}> percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(100*sumDialIn/sumDialOut))
+print("<{:.2%}> percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(sum_dial_in/sum_dial_out))
 
 

@@ -23,38 +23,24 @@ September 2016.".
 如果键不存在于字典内，将此键加入字典，并将它的值设为给定值。
 """ 
 
+def creat_dict_phone_time(dict, key, value):
+	if key in dict:
+		dict[key] += value
+	else:
+		dict[key] = value
+	
+
 def statisticalCallTime(calls):
 	callTimeDict={}
 	for elemInfor in calls:
 		sendPhoneNumber = elemInfor[0]
 		receivePhoneNumber = elemInfor[1]
 		lengthTimeCall = int(elemInfor[3])
-		if sendPhoneNumber in callTimeDict:
-			callTimeDict[sendPhoneNumber] += lengthTimeCall
-		else :
-			callTimeDict[sendPhoneNumber] = lengthTimeCall
-		
-		if receivePhoneNumber in callTimeDict:
-			callTimeDict[receivePhoneNumber] += lengthTimeCall
-		else :
-			callTimeDict[receivePhoneNumber] = lengthTimeCall
+		creat_dict_phone_time(callTimeDict, sendPhoneNumber, lengthTimeCall)
+		creat_dict_phone_time(callTimeDict, receivePhoneNumber, lengthTimeCall)
 	return callTimeDict
-	
+
 dict_phone_time = statisticalCallTime(calls)
-timeMax = max(dict_phone_time.values())
-
-for key, value in dict_phone_time.items():
-	if value==timeMax:
-		print("<{}> spent the longest time, <{}> seconds, on the phone during September 2016.".format(key, value))
-		break
-
-
-
-
-	
-
-
-
-
-
+key_most_length_time = max(dict_phone_time, key=dict_phone_time.get)
+print("<{}> spent the longest time, <{}> seconds, on the phone during September 2016.".format(key_most_length_time, dict_phone_time[key_most_length_time]))
 
