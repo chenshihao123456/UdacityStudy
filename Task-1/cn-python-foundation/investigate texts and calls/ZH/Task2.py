@@ -24,21 +24,21 @@ September 2016.".
 """ 
 
 def creat_dict_phone_time(dict, key, value):
-	if key in dict:
-		dict[key] += value
-	else:
-		dict[key] = value
-	
+    if key in dict:
+        dict[key] += value
+    else:
+        dict[key] = value
+    
 
 def statisticalCallTime(calls):
-	callTimeDict={}
-	for elemInfor in calls:
-		sendPhoneNumber = elemInfor[0]
-		receivePhoneNumber = elemInfor[1]
-		lengthTimeCall = int(elemInfor[3])
-		creat_dict_phone_time(callTimeDict, sendPhoneNumber, lengthTimeCall)
-		creat_dict_phone_time(callTimeDict, receivePhoneNumber, lengthTimeCall)
-	return callTimeDict
+    callTimeDict={}
+    for elemInfor in calls:
+        sendPhoneNumber = elemInfor[0]
+        receivePhoneNumber = elemInfor[1]
+        lengthTimeCall = int(elemInfor[3])
+        creat_dict_phone_time(callTimeDict, sendPhoneNumber, lengthTimeCall)
+        creat_dict_phone_time(callTimeDict, receivePhoneNumber, lengthTimeCall)
+    return callTimeDict
 
 dict_phone_time = statisticalCallTime(calls)
 key_most_length_time = max(dict_phone_time, key=dict_phone_time.get)

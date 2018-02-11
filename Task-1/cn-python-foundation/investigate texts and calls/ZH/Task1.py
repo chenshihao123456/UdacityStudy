@@ -12,12 +12,12 @@ with open('calls.csv', 'r') as f:
     calls = list(reader)
 
 
-	
+    
 def add_telephone_number(phone_list, dic_number):
-	for lineInfor in phone_list:
-		dic_number.add(lineInfor[0])
-	
-	
+    for lineInfor in phone_list:
+        dic_number.add(lineInfor[0])
+    
+    
 """
 任务1：
 短信和通话记录中一共有多少电话号码？每个号码只统计一次。

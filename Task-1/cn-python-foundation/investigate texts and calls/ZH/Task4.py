@@ -32,5 +32,5 @@ impossible_phone_number = [x[1] for x in calls] + sum([[x[0], x[1]] for x in tex
 list_promoter = sorted(set(possible_phone_number) - set(impossible_phone_number))
 print("These numbers could be telemarketers: ")
 for promoter in list_promoter:
-	print(promoter)
+    print(promoter)
 

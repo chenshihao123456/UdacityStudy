@@ -41,33 +41,33 @@ to other fixed lines in Bangalore."
 """
 area_codes = set()
 for elem_infor in calls:
-	send_phone_number = elem_infor[0]
-	receive_phone_number = elem_infor[1]
-	if '(080)' in send_phone_number:
-		if '(' in receive_phone_number :
-			index_end = receive_phone_number.find(')')
-			tmp_area_code= receive_phone_number[1:index_end]
-			area_codes.add(tmp_area_code)		
-		if ' ' in receive_phone_number:
-			tmp_area_code= receive_phone_number[0:4]
-			area_codes.add(tmp_area_code)	
+    send_phone_number = elem_infor[0]
+    receive_phone_number = elem_infor[1]
+    if '(080)' in send_phone_number:
+        if '(' in receive_phone_number :
+            index_end = receive_phone_number.find(')')
+            tmp_area_code= receive_phone_number[1:index_end]
+            area_codes.add(tmp_area_code)       
+        if ' ' in receive_phone_number:
+            tmp_area_code= receive_phone_number[0:4]
+            area_codes.add(tmp_area_code)   
 sortarea_codes = list(area_codes)
-sortarea_codes.sort()			
+sortarea_codes.sort()           
 print("The numbers called by people in Bangalore have codes:")
 for elem_area_code in sortarea_codes:
-	print(elem_area_code)
+    print(elem_area_code)
 
 
 sum_dial_out = 0
 sum_dial_in = 0
 for elem_infor in calls:
-	send_phone_number = elem_infor[0]
-	receive_phone_number = elem_infor[1]
-	if '080' in send_phone_number:
-		sum_dial_out += 1
-		if '080' in receive_phone_number:
-			sum_dial_in += 1
-	
+    send_phone_number = elem_infor[0]
+    receive_phone_number = elem_infor[1]
+    if '080' in send_phone_number:
+        sum_dial_out += 1
+        if '080' in receive_phone_number:
+            sum_dial_in += 1
+    
 print("<{:.2%}> percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(sum_dial_in/sum_dial_out))
 
 
